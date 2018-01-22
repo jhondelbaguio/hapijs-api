@@ -1,0 +1,12 @@
+{
+	"app": {
+		"port": "5000",
+		"name": "Server API Production",
+		"logLevel": "info",
+		"path": "http://localhost:5000"
+	},
+	"JWT_SECRET": "2edbab9f65d208e49a4e94c91f430792",
+	"MONGO_URL": "mongodb://mongo:27014/codebase",
+	"NODE_ENV": "production",
+	"UPLOAD_PATH": "uploads"
+}

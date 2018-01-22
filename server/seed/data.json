@@ -1,0 +1,8 @@
+[{
+	"model": "User",
+	"documents": [{
+		"email": "sampleuser@gmail.com",
+		"name" : "Sample User",
+		"passwordHash" : "$2a$10$QeSNgPgxpFo.hXXfV8/nrubhlIjRAZv8IqgR.OW9j0u48G2j.5sMK"
+	}]
+}]

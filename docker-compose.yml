@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  mongo:
+    image: excellalabs/mongo:3.4.7
+    environment:
+      - MONGODB_APPLICATION_DATABASE=app_db_name
+      - MONGODB_APPLICATION_USER=app_user
+      - MONGODB_APPLICATION_PASS=app_password
+      - MONGODB_APPLICATION_PORT=27014
+      - MONGODB_APPLICATION_DOCKER_ADDR=mongo
+    command: --smallfiles -port 27014
+    ports: 
+      - 27014:27014
+    restart: always
+    volumes:
+      - /data/mongodb/db:/data/db
+
+  server:
+    build: ./server
+    ports:
+      - 5050:5050
+    volumes:
+      - ./server:/usr/src/app/
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VIRTUAL_PORT=5050
+      - PORT=5050
+      - VIRTUAL_HOST=local.dev
+    restart: always
+    depends_on:
+      - mongo
+
+
+# networks: 
+#   default:
+#     external:
+#       name: nginx-proxy
